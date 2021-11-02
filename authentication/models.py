@@ -7,6 +7,8 @@ from django.contrib.auth.models import (
 
 from django.db import models
 
+
+
 class UserManager(BaseUserManager):
 
     def create_user(self, username, email, password=None):
@@ -45,3 +47,20 @@ class User(AbstractBaseUser, PermissionsMixin):
     auth_provider = models.CharField(
         max_length=255, blank=False,
         null=False, default=AUTH_PROVIDERS.get('email'))
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username']
+
+    objects = UserManager()
+
+    def __str__(self):
+        return self.email
+
+    def tokens(self):
+        refresh = RefreshToken.for_user(self)
+        return {
+            'refresh': str(refresh),
+            'access': str(refresh.access_token)
+        }
+
+    
