@@ -107,6 +107,14 @@ REST_FRAMEWORK = {
     )
 }
 
+SIMPLE_JWT = {
+    'ALGORITHM': 'HS256',
+    'SIGNING_KEY': SECRET_KEY,
+    'VERIFYING_KEY': None,
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=800),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=2),
+}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
