@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_yasg',
     'cloudinary',
+    'trendy',
 ]
 
 SWAGGER_SETTINGS = {
