@@ -3,6 +3,7 @@ from rest_framework import generics, status, views, permissions
 from .serializers import RegisterSerializer
 from .models import User
 from rest_framework.response import Response
+from rest_framework_simplejwt.tokens import RefreshToken
 
 # Create your views here.
 
@@ -16,5 +17,6 @@ class RegisterView(generics.GenericAPIView):
         serializer.save()
         user_data = serializer.data
         user = User.objects.get(email=user_data['email'])
+        token = RefreshToken.for_user(user).access_token
 
         return Response(user_data, status=status.HTTP_201_CREATED)
