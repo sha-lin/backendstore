@@ -1,13 +1,11 @@
 from django.db import models
 
 # Create your models here.
-# Create your models here.
 from django.contrib.auth.models import (
     AbstractBaseUser, BaseUserManager, PermissionsMixin)
 
 from django.db import models
 from rest_framework_simplejwt.tokens import RefreshToken
-
 
 
 class UserManager(BaseUserManager):
@@ -37,6 +35,7 @@ class UserManager(BaseUserManager):
 AUTH_PROVIDERS = {'facebook': 'facebook', 'google': 'google',
                   'twitter': 'twitter', 'email': 'email'}
 
+
 class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=255, unique=True, db_index=True)
     email = models.EmailField(max_length=255, unique=True, db_index=True)
@@ -63,5 +62,3 @@ class User(AbstractBaseUser, PermissionsMixin):
             'refresh': str(refresh),
             'access': str(refresh.access_token)
         }
-
-    
