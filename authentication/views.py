@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework import generics, status, views, permissions
 from .serializers import RegisterSerializer
 from .models import User
+from rest_framework.response import Response
 
 # Create your views here.
 
@@ -15,3 +16,5 @@ class RegisterView(generics.GenericAPIView):
         serializer.save()
         user_data = serializer.data
         user = User.objects.get(email=user_data['email'])
+
+        return Response(user_data, status=status.HTTP_201_CREATED)
