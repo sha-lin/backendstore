@@ -14,6 +14,9 @@ from pathlib import Path
 import os
 import datetime
 from datetime import timedelta
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -44,6 +47,7 @@ INSTALLED_APPS = [
     'authentication',
     'rest_framework',
     'drf_yasg',
+    'cloudinary',
 ]
 
 SWAGGER_SETTINGS = {
@@ -164,4 +168,10 @@ EMAIL_HOST_PASSWORD = 'Chepkoech1234'
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
+# adding config
+cloudinary.config( 
+  cloud_name = "dtee9x5yu", 
+  api_key = "163743296544585", 
+  api_secret = "eVRfXr_wf-SOEbUOZ5XhdclyR2s" 
+)
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
