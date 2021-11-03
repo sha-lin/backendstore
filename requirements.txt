@@ -15,6 +15,7 @@ Jinja2==3.0.2
 lts==0.0.2
 MarkupSafe==2.0.1
 packaging==21.2
+Pillow==8.4.0
 psycopg2==2.9.1
 PyJWT==2.3.0
 pyparsing==2.4.7
