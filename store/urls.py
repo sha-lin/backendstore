@@ -18,7 +18,7 @@ from django.urls import path, include
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-from trendy.views import ProductList, DecoratedTokenObtainPairView, DecoratedTokenRefreshView, ProductDetail, RedirectViewSwagger
+from trendy.views import ProductList, ProductDetail
 
 schema_view = get_schema_view(
    openapi.Info(
