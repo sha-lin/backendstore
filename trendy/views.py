@@ -14,7 +14,7 @@ from django.shortcuts import redirect
 
 class ProductList(generics.ListCreateAPIView):
     queryset = Product.objects.all()
-    permission_classes = [IsAuthenticated, IsStaffPermission]
+    permission_classes = [IsAuthenticated]
     serializer_class = ProductSerializer
 
     def list(self, request):

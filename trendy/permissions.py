@@ -1,5 +1,6 @@
 from rest_framework import permissions
 from authentication.models import User
+from django.contrib.auth.models import User
 
 
 class IsStaffPermission(permissions.BasePermission):
