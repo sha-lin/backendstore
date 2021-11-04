@@ -89,7 +89,7 @@ class VerifyEmail(views.APIView):
         'token', in_=openapi.IN_QUERY, description='Description', type=openapi.TYPE_STRING)
 
     @swagger_auto_schema(manual_parameters=[token_param_config])
-    def get(self, request):
+    def post(self, request):
         token = request.GET.get('token')
         try:
             payload = jwt.decode(token, settings.SECRET_KEY)
