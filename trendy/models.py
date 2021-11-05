@@ -18,9 +18,8 @@ class Category(models.Model):
 class Product(models.Model):
     title = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=12, decimal_places=2)
-    description = models.TextField()
-    # image = models.TextField()
-    image = CloudinaryField('image')
+    description = models.TextField(null=True)
+    image = models.TextField()
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE, related_name='products', null=True)
     users = models.ManyToManyField(User, through='Cart')
